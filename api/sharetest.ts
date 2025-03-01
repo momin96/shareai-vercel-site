@@ -25,11 +25,16 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         </style>
         <script>
             function openApp() {
-                window.location.href = "${deepLink}";
-                setTimeout(() => {
-                    window.location.href = "https://yourfallbackwebsite.com"; // Redirect to fallback if the app is not installed
-                }, 2000);
+                window.location.href = deepLink;
+                // setTimeout(() => {
+                //     window.location.href = "https://google.com"; // Redirect to fallback if the app is not installed
+                // }, 2000);
             }
+
+              // Open the app on page load
+            window.onload = () => {
+                openApp();
+            };
         </script>
     </head>
     <body>
